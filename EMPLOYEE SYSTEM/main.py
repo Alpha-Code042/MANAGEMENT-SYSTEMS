@@ -2,7 +2,7 @@ from model import *
 import json
 import os
 
-file_path = 'data.json'
+file_path = 'C:/Users/USER/Desktop/System/EMPLOYEE SYSTEM/data.json'
 
 def main():
     while True:
