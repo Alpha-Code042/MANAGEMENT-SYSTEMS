@@ -12,12 +12,13 @@ def main():
         print('1. Add Employee')
         print('2. View Employee Details')
         print('3. Get Employee Details')
-        print('4. Exist System')
+        print('4. Delete Employee Details')
+        print('5. Exist System')
         print()
 
         try:
             choice = int(input('What would you like to do: '))
-            if choice not in [1,2,3,4]:
+            if choice not in [1,2,3,4,5]:
                 print('Choice out of range')
                 print('Try again.....')
                 continue
@@ -90,6 +91,28 @@ def main():
                             
                             result = [entry for entry in output if search == entry['Employee_Id'] ]
                             print(result)                    
+                except FileExistsError:
+                    print('File does not exist')
+
+            elif choice == 4:
+                try:
+                    if os.path.exists(file_path):
+                        with open(file_path, 'r') as file:
+                            output = json.load(file)
+                            while True:
+                                try:
+                                    search = int(input('Enter empolyee Id: ')) #get the id of the employee from the user
+                                    break
+                                except ValueError:
+                                    print('Enter a valid Id')
+                                continue
+
+                            '''Used list comprehension to iterate through all the data in the json file in order to find one that matches with the search key'''
+                            
+                            result = [entry for entry in output if search != entry['Employee_Id'] ]
+                            with open(file_path, 'w') as file:
+                                json.dump(result, file, indent=4)
+                                print(f'Employee with Id {search} deleted successfully')                  
                 except FileExistsError:
                     print('File does not exist')
             else:
