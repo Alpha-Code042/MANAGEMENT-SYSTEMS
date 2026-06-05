@@ -112,6 +112,7 @@ def main():
                             result = [entry for entry in output if search != entry['Employee_Id'] ]
                             with open(file_path, 'w') as file:
                                 json.dump(result, file, indent=4)
+                                print()
                                 print(f'Employee with Id {search} deleted successfully')                  
                 except FileExistsError:
                     print('File does not exist')

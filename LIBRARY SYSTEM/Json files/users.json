@@ -1,0 +1,17 @@
+[
+    {
+        "user_name": "Victor",
+        "user_password": "alpha coder 042",
+        "user_id": 1
+    },
+    {
+        "user_name": "Sam",
+        "user_password": "123456789",
+        "user_id": 2
+    },
+    {
+        "user_name": "Gift",
+        "user_password": "oooodojsoj",
+        "user_id": 3
+    }
+]
