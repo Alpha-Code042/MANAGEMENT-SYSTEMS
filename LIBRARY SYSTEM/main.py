@@ -1,5 +1,6 @@
 from Models.book_model import *
 from Models.user_model import *
+from utilis import *
 import json
 import os
 
@@ -14,7 +15,7 @@ def main():
         print()
         print('1. Register an account')
         print('2. Log in to account')
-        print('2. Exist system')
+        print('3. Exist system')
 
         try:
             print()
@@ -90,7 +91,8 @@ def main():
                         print('Pls enter a valid choice')
                         print('Try again.....')
                         continue
-                        
+            elif choice == 2:
+                log_in()    
         except ValueError:
             print('Pls enter a valid choice')
             print('Try again.....')
