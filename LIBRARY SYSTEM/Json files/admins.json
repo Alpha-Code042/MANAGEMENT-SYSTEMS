@@ -1,8 +1,14 @@
 [
     {
         "user_name": "Victor",
-        "user_password": "alphacoder",
+        "user_password": "123456789",
         "user_id": 1,
+        "is_admin": true
+    },
+    {
+        "user_name": "Dave",
+        "user_password": "123456789",
+        "user_id": 2,
         "is_admin": true
     }
 ]

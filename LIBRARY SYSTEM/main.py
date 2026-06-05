@@ -5,7 +5,7 @@ import json
 import os
 
 
-books_file_path = 'LIBRARY SYSTEM/books.json'
+books_file_path = 'LIBRARY SYSTEM/Json files/books.json'
 users_file_path = 'LIBRARY SYSTEM/Json files/users.json'
 admins_file_path = 'LIBRARY SYSTEM/Json files/admins.json'
 def main():
@@ -87,12 +87,17 @@ def main():
                             except FileExistsError:
                                 print('File does not exist')
                                 break
+                        else:
+                            break
                     except ValueError:
                         print('Pls enter a valid choice')
                         print('Try again.....')
                         continue
             elif choice == 2:
-                log_in()    
+                log_in()
+            else:
+                print('You existed the system')
+                break  
         except ValueError:
             print('Pls enter a valid choice')
             print('Try again.....')
