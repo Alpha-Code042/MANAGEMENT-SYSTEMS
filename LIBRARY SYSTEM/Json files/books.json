@@ -1,14 +1,8 @@
 [
     {
-        "Book_Title": "Lovers",
-        "Book_Author": "James",
-        "Book_Id": 1,
-        "Book_Copies": 4
-    },
-    {
-        "Book_Title": "Gifted",
-        "Book_Author": "Choima",
-        "Book_Id": 4,
-        "Book_Copies": 3
+        "Book_Title": "Java",
+        "Book_Author": "Emma",
+        "Book_Id": 3,
+        "Book_Copies": 7
     }
 ]

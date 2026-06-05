@@ -4,6 +4,7 @@ import json
 import os
 
 books_file_path = 'LIBRARY SYSTEM/Json files/books.json'
+borrowed_books_file_path = 'LIBRARY SYSTEM/Json files/borrowed_books.json'
 users_file_path = 'LIBRARY SYSTEM/Json files/users.json'
 admins_file_path = 'LIBRARY SYSTEM/Json files/admins.json'
 def log_in():
@@ -78,11 +79,11 @@ def log_in():
                                         for entry in content:
                                             if user_name == entry['user_name'] and user_password == entry['user_password']:
                                                 print('Log in successful')
-                                                break
+                                                user_UI()
                                         else: 
-                                            print('Log in failed')
                                             break
                                 else:
+                                    print('Log in failed')
                                     print('User records not found')
                                     print('Pls register first')
                                     break
@@ -168,6 +169,90 @@ def admin_UI():
                                 print(f'User name: {entry['user_name']}')
                                 print(f'User Password: {entry['user_password']}')
                                 print(f'User Id: {entry['user_id']}')
+                except FileExistsError:
+                    print('File does not exist')
+            else:
+                print('Log out successful')
+                break
+        except ValueError:
+            print('Invalid choice')
+            continue
+
+
+
+def user_UI():
+    while True:
+        print()
+        print('USER DASHBOARD'.center(50,'='))
+        print()
+        print('1. Borrow books')
+        print('2. Display books')
+        print('3. Log out')
+
+        try:
+            print()
+            choice = int(input('What do you want to do: '))
+            if choice not in [1,2,3]:
+                print('Choice out of range')
+                print('Try again....')
+                continue
+            elif choice == 1:
+                try:
+                    if os.path.exists(books_file_path):
+                        with open(books_file_path, 'r') as file:
+                            content = json.load(file)
+                            while True:
+                                try:
+                                    search_id = int(input('Enter book id: '))
+                                    if search_id <= 0:
+                                        print('Book id should be greater than zero')
+                                        continue
+                                    else:
+                                        break
+                                except ValueError:
+                                    print('Invalid book id')
+                                    print('Try again')
+                                    continue
+                            new_data = [entry for entry in content if search_id != entry['Book_Id']]
+                            with open(books_file_path, 'w') as file:
+                                json.dump(new_data,file, indent=4)
+                            
+                            books_borrowed=[entry for entry in content if search_id == entry['Book_Id']]
+                            try:
+                                if os.path.exists(borrowed_books_file_path):
+                                    with open(borrowed_books_file_path, 'r') as file:
+                                        content = json.load(file)
+                                        content.append(books_borrowed)
+                                    with open(borrowed_books_file_path, 'w') as file:
+                                        json.dump(content, file, indent=4)
+                                        print(f'Book with Id "{search_id}" borrowed successfully')
+                                else:
+                                    content = []
+                                    content.append(books_borrowed)
+                                    with open(borrowed_books_file_path, 'w') as file:
+                                        json.dump(content, file, indent=4)
+                                        print(f'Book with Id "{search_id}" borrowed successfully')
+                            except FileExistsError:
+                                print('File does not exist')
+
+                    else:
+                        print('No book records yet')
+                        print('add a book to continue')
+                except FileExistsError:
+                    print('File does not exist')
+            elif choice == 2:
+                try:
+                    if os.path.exists(books_file_path):
+                        with open(books_file_path, 'r') as file:
+                            content = json.load(file)
+                            print()
+                            print('BOOK SHELVES'.center(50,'='))
+                            for entry in content:
+                                print()
+                                print(f'Book Id: {entry['Book_Id']}')
+                                print(f'Book Title: {entry['Book_Title']}')
+                                print(f'Book Author: {entry['Book_Author']}')
+                                print(f'Copies available: {entry['Book_Copies']}')
                 except FileExistsError:
                     print('File does not exist')
             else:
