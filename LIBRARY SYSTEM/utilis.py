@@ -126,7 +126,6 @@ def admin_UI():
                 book = Book.create_book()
 
                 data = book.to_dict()
-                print(data)
 
                 try:
                     if os.path.exists(books_file_path):
@@ -158,7 +157,6 @@ def admin_UI():
                                 print(f'Book Id: {entry['Book_Id']}')
                                 print(f'Book Title: {entry['Book_Title']}')
                                 print(f'Book Author: {entry['Book_Author']}')
-                                print(f'Copies available: {entry['Book_Copies']}')
                 except FileExistsError:
                     print('File does not exist')
             elif choice == 3:
@@ -187,7 +185,6 @@ def admin_UI():
                                 print(f'Book Id: {entry[0]['Book_Id']}')
                                 print(f'Book Title: {entry[0]['Book_Title']}')
                                 print(f'Book Author: {entry[0]['Book_Author']}')
-                                print(f'Copies available: {entry[0]['Book_Copies']}')
                 except FileExistsError:
                     print('File does not exist')
             else:
@@ -272,7 +269,6 @@ def user_UI():
                                 print(f'Book Id: {entry['Book_Id']}')
                                 print(f'Book Title: {entry['Book_Title']}')
                                 print(f'Book Author: {entry['Book_Author']}')
-                                print(f'Copies available: {entry['Book_Copies']}')
                 except FileExistsError:
                     print('File does not exist')
             elif choice == 3:
@@ -287,7 +283,6 @@ def user_UI():
                                 print(f'Book Id: {entry[0]['Book_Id']}')
                                 print(f'Book Title: {entry[0]['Book_Title']}')
                                 print(f'Book Author: {entry[0]['Book_Author']}')
-                                print(f'Copies available: {entry[0]['Book_Copies']}')
                 except FileExistsError:
                     print('File does not exist')
             else:

@@ -1,18 +1,9 @@
 [
     [
         {
-            "Book_Title": "Lovers",
+            "Book_Title": "Love",
             "Book_Author": "James",
-            "Book_Id": 2,
-            "Book_Copies": 5
-        }
-    ],
-    [
-        {
-            "Book_Title": "Python",
-            "Book_Author": "Victor",
-            "Book_Id": 1,
-            "Book_Copies": 3
+            "Book_Id": 1
         }
     ]
 ]
