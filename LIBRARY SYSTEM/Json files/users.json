@@ -1,12 +1,12 @@
 [
-    {
-        "user_name": "Sam",
-        "user_password": "123456789",
-        "user_id": 1
-    },
-    {
-        "user_name": "Gift",
-        "user_password": "123456789",
-        "user_id": 2
-    }
+  {
+    "user_name": "Sam",
+    "user_password": "123456789",
+    "user_id": 1
+  },
+  {
+    "user_name": "Gift",
+    "user_password": "123456789",
+    "user_id": 2
+  }
 ]

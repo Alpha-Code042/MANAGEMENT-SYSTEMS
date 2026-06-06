@@ -10,5 +10,11 @@
         "user_password": "123456789",
         "user_id": 2,
         "is_admin": true
+    },
+    {
+        "user_name": "Sommy",
+        "user_password": "123456789",
+        "user_id": 12,
+        "is_admin": true
     }
 ]
